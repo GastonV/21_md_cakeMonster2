@@ -9,12 +9,12 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-}
 
-.button:hover {
-  color: var(--mainPink);
-  border-color: var(--mainYellow);
-  cursor: pointer;
-  background-color: black;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out;
+  &:hover {
+    color: var(--mainPink);
+    border-color: var(--mainYellow);
+    cursor: pointer;
+    background-color: black;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out;
+  }
 }
