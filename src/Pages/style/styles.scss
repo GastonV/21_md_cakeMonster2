@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+}
+
+.shopItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+
+}
+
+:root {
+  --mainPink: #ef7998;
+  --mainYellow: rgb(249, 228, 148);
+  --mainWhite: #fff;
+  --mainBlack: #000;
+  --yellowTrans: rgba(249, 228, 148, 0.5);
+  --mainGrey: rgb(238, 238, 238);
+}
+
+.shopItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.container {
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray);
+
+}
+
+// todo buttons come too close when no item in list
+.buttons {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 10px;
+}
+
+

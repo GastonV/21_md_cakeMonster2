@@ -4,10 +4,11 @@ import './Button.scss';
 type ButtonProps = {
   buttonName: string,
   clickHandler: () => void,
+  cssButton: string,
 }
 
-const Button: FC<ButtonProps> = ({ buttonName, clickHandler }) => (
-  <button className="button" onClick={clickHandler}>
+const Button: FC<ButtonProps> = ({ buttonName, clickHandler, cssButton }) => (
+  <button className={cssButton} onClick={clickHandler}>
     {buttonName}
   </button>
 );
