@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './style/styles.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import shopItems from '../data/shopItems';
 import topics from '../data/topics';
 import ShopItem from '../components/ShopItem/ShopItem';
@@ -33,66 +35,72 @@ export const PContent = () => {
       return;
     }
     const tempList = initShopItems.filter((item) => item.title.toLowerCase()
-      .includes(value));
+      .match(value));
 
     setShopList(tempList);
   };
 
   return (
     <>
-      <div>
-        <div className="buttons">
-          {topics.map((topic) => (
-            <Button
-              key={topic}
-              cssButton={`${'button'}`}
-              buttonName={`${topic}`}
-              clickHandler={() => {
-                setInputText('');
-                return filterByType(topic);
-              }}
-            />
-          ))}
-
-        </div>
-        <div className="inputSection">
-          <Input
-            inputText={inputText}
-            onChange={(e) => {
-              filterByInputTextOrNum(e.target.value);
-              return setInputText(e.target.value);
+      <div className="buttons">
+        {topics.map((topic) => (
+          <Button
+            key={topic}
+            cssButton={`${'button'}`}
+            buttonName={`${topic}`}
+            clickHandler={() => {
+              setInputText('');
+              return filterByType(topic);
             }}
           />
-        </div>
-        <div className="shopItems">
-          {
-            shopList.map(({
-              id,
-              title,
-              type,
-              price,
-              imgSrc,
-            }, index) => (
+        ))}
 
-              <ShopItem
-                key={id}
-                displayedOn={false}
-                cssName={{
-                  container: 'itemList',
-                  imgCss: 'itemListImg',
-                  footer: 'itemFooter',
-                }}
-                item={{
-                  title,
-                  price,
-                  imgSrc,
-                  type,
-                }}
-              />
-            ))
-          }
-        </div>
       </div>
+
+      <div className="inputSection">
+
+        <span className="icon--search">
+          <FontAwesomeIcon icon={faSearch} />
+        </span>
+
+        <Input
+          inputText={inputText}
+          onChange={(e) => {
+            filterByInputTextOrNum(e.target.value);
+            return setInputText(e.target.value);
+          }}
+        />
+      </div>
+
+      <div className="shopItems">
+        {
+          shopList.map(({
+            id,
+            title,
+            type,
+            price,
+            imgSrc,
+          }) => (
+
+            <ShopItem
+              key={id}
+              displayedOn={false}
+              cssName={{
+                container: 'itemList',
+                imgCss: 'itemListImg',
+                footer: 'itemFooter',
+              }}
+              item={{
+                title,
+                price,
+                imgSrc,
+                type,
+              }}
+            />
+          ))
+        }
+      </div>
+
     </>
   );
 };

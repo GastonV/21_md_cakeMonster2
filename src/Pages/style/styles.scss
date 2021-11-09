@@ -14,22 +14,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
-
-}
-
-:root {
-  --mainPink: #ef7998;
-  --mainYellow: rgb(249, 228, 148);
-  --mainWhite: #fff;
-  --mainBlack: #000;
-  --yellowTrans: rgba(249, 228, 148, 0.5);
-  --mainGrey: rgb(238, 238, 238);
-}
-
-.shopItems {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
 }
 
 .container {
@@ -37,7 +21,6 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--gray);
-
 }
 
 // todo buttons come too close when no item in list
@@ -45,8 +28,26 @@ body {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding-block: 10px;
+  gap: 30px
 }
 
+.icon--search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mainPink);
+  color: var(--mainBlack);
+  border-radius: 8px 0 0 8px;
+}
 
+.inputSection {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+
+@media (min-width: 992px) {
+  .homepage {
+
+  }
+}

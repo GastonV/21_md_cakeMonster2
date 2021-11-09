@@ -1,5 +1,7 @@
-import './ShopItem.scss';
+import './shopItem.scss';
 import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 type ShopProps = {
   item: {
@@ -25,15 +27,19 @@ const ShopItem: FC<ShopProps> = ({
     className={cssName.container}
     itemType={`${item.type}`}
   >
-
-    <img
-      className={cssName.imgCss}
-      src={`${item.imgSrc}`}
-      alt={`${item.title}`}
-    />
+    <div className="img__wrapper">
+      <img
+        className={cssName.imgCss}
+        src={`${item.imgSrc}`}
+        alt={`${item.title}`}
+      />
+      <span className="img__shoppingCart">
+        <FontAwesomeIcon icon={faShoppingCart} />
+      </span>
+    </div>
     <div className={cssName.footer}>
       <h1>{`${item.title}`}</h1>
-      <p>{`${item.price}`}</p>
+      <p>{`$${item.price}`}</p>
     </div>
   </div>
 );
